@@ -1,17 +1,91 @@
 <!DOCTYPE html>
 <html lang="no">
 	<head>
-		
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
-		<title></title>
+		<title></title>	
+	
+		<script type="text/javascript">
+			var getColor = function(index) {
+				if (index === 0) return "orange";
+				if (index === 1) return "white";
+				if (index === 2) return "blue";
+				if (index === 3) return "black";
+				if (index === 4) return "pink";
+				if (index === 5) return "grey";
+			}
 		
-		<script type="text/JavaScript">
-			var drawRectangle = function (x,y) {
-				
-				};
-		</script>
+			var boardAddTable = function(size) {
+				var boardTable = document.getElementById("board");
+				var row;
+				var cell;
+				for (var i=0; i< size;i++){
+					row = boardTable.insertRow(i); 
+					for (var j=0; j< size;j++){
+						cell = row.insertCell(j);
+
+						var colorIndex=Math.floor(Math.random()*6)
+						var className = getColor(colorIndex);
+							
+						cell.className=className;
+					}
+										
+				}
+			};
+		</script>	
 	</head>
-	<body>
+	<style type="text/css">
+		table{
+			background-color:red;
+			margin:0;
+			border:0
 		
+		}
+		
+		td{
+			width: 50px; height: 50px;
+			border-style: none}
+			
+		td.white{background-color:white}
+		td.black{background-color:black}
+		td.pink{background-color:pink}
+		td.orange{background-color:orange}
+		td.grey{background-color:grey}
+		td.blue{background-color:blue}
+		
+		span {
+			width: 50px; height:70px;
+			border-style:solid;
+			border-color:red;
+		}
+		
+		span.white{background-color:white}
+		span.black{background-color:black}
+		span.pink{background-color:pink}
+		span.orange{background-color:orange}
+		span.grey{background-color:grey}
+		span.blue{background-color:blue}
+		
+		
+	</style>
+	
+
+	<body onLoad="boardAddTable(10)" >
+		<table id="board" border="0">
+			<tbody>
+			</tbody>
+		</table>
 	</body>
+<br/>
+	<table>
+		<tbody>
+			<tr>
+				<td class="white">
+				<td class="black">
+				<td class="pink">
+				<td class="orange">
+				<td class="grey">
+				<td class="blue">
+			</tr>
+		</tbody>
+	</table>	
 </html>
