@@ -29,7 +29,11 @@
 			}
 		
 			var boardAddTable = function(size) {
+				stepCounter= 0;
 				var boardTable = document.getElementById("board");
+				while ( boardTable.rows.length > 0){
+					boardTable.deleteRow(0);
+				}
 				var row;
 				var cell;
 				for (var i=0; i< size;i++){
@@ -72,8 +76,18 @@
 				var oldColor = boardTable.rows[0].cells[0].className;
 				visitedArray = [];
 				changeColor(0,0,oldColor,newColor);
+				if ( stepCounter === 19){
+					document.getElementById("message").innerHTML="You lose!";
+					
+					document.getElementById("controll").style.visibility= "hidden";
+				}
 				
 
+			};
+			
+			var restart = function () {
+				boardAddTable(10);
+				document.getElementById("controll").style.visibility= "visible";
 			};
 		</script>	
 	</head>
@@ -128,9 +142,16 @@
 		<div class="step" id="stepCounter">
 			0
 		</div>
+		<div class="message" id="message">
+			
+		</div>
+		<div class="restart" id="restart" onclick="restart()">
+			Start p&aring; nytt!
+		</div>
+		
 		
 		<div class="controll">	
-			<table>
+			<table id="controll">
 				<tbody>
 					<tr>
 						<td class="white" onClick="klicked('white')">
