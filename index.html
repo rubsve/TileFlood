@@ -4,132 +4,10 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<title></title>	
 	
-		<script type="text/javascript">
-			var stepCounter= 0; 
-			var visitedArray;
-			var haveNotVisited = function(value) {
-				for (var i = 0;i < visitedArray.length;  i++) {
-					if (visitedArray[i] === value) {
-						return false;
-					}
-				}
-				visitedArray[visitedArray.length]=value;
-				return true;
-			};
-			
-			
-			
-			var getColor = function(index) {
-				if (index === 0) return "orange";
-				if (index === 1) return "white";
-				if (index === 2) return "blue";
-				if (index === 3) return "black";
-				if (index === 4) return "pink";
-				if (index === 5) return "grey";
-			}
-		
-			var boardAddTable = function(size) {
-				stepCounter= 0;
-				var boardTable = document.getElementById("board");
-				while ( boardTable.rows.length > 0){
-					boardTable.deleteRow(0);
-				}
-				var row;
-				var cell;
-				for (var i=0; i< size;i++){
-					row = boardTable.insertRow(i); 
-					for (var j=0; j< size;j++){
-						cell = row.insertCell(j);
-
-						var colorIndex=Math.floor(Math.random()*6)
-						var className = getColor(colorIndex);
-							
-						cell.className=className;
-					}
-										
-				}
-			};
-
-			var changeColor = function( x, y, oldColor, newColor){
-				if ( haveNotVisited(x + " " + y) ) {
-					if (x >= 0 && x<10 && y>=0 && y<10 ){
-						var boardTable = document.getElementById("board");
-						var cell = boardTable.rows[x].cells[y];
-						if ( cell.className === oldColor )
-						{
-							changeColor(x+1,y,oldColor,newColor);
-							changeColor(x,y+1,oldColor,newColor);
-							changeColor(x-1,y,oldColor,newColor);
-							changeColor(x,y-1,oldColor,newColor);
-							cell.className = newColor;
-						}
-					}	                    				
-				}
-			};
-			
-			var klicked = function(newColor) {
-				stepCounter++;
-				var stepCounterDiv=document.getElementById("stepCounter");
-				stepCounterDiv.innerHTML = stepCounter;
-				
-				var boardTable = document.getElementById("board");
-				var oldColor = boardTable.rows[0].cells[0].className;
-				visitedArray = [];
-				changeColor(0,0,oldColor,newColor);
-				if ( stepCounter === 19){
-					document.getElementById("message").innerHTML="You lose!";
-					
-					document.getElementById("controll").style.visibility= "hidden";
-				}
-				
-
-			};
-			
-			var restart = function () {
-				boardAddTable(10);
-				document.getElementById("controll").style.visibility= "visible";
-			};
+		<script src="TileFlood.js" type="text/javascript" >
 		</script>	
+		<LINK REL=StyleSheet HREF="TileFlood.css" TYPE="text/css"/>
 	</head>
-	<style type="text/css">
-		table{
-			background-color:red;
-			margin:0;
-			border:0
-		
-		}
-		
-		td{
-			width: 30px; height: 30px;
-			border-style: none}
-			
-		td.white{background-color:white}
-		td.black{background-color:black}
-		td.pink{background-color:pink}
-		td.orange{background-color:orange}
-		td.grey{background-color:grey}
-		td.blue{background-color:blue}
-		
-		span {
-			width: 50px; height:70px;
-			border-style:solid;
-			border-color:red;
-		}
-		
-		div.board{
-			float: left
-		}	
-		
-		div.step{
-			
-			background-color: yellow
-		}	
-		
-		div.controll{
-			clear: both
- 		}
-		
-	</style>
 	
 
 	<body onLoad="boardAddTable(10)" >
@@ -143,7 +21,7 @@
 			0
 		</div>
 		<div class="message" id="message">
-			
+			You loose!
 		</div>
 		<div class="restart" id="restart" onclick="restart()">
 			Start p&aring; nytt!

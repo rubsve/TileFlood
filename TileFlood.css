@@ -1,0 +1,58 @@
+		table{
+			background-color:red;
+			margin:0;
+			border:0	
+		}
+		
+		td{
+			width: 30px; height: 30px;
+			border-style: none
+		}
+			
+		td.white{background-color:white}
+		td.black{background-color:black}
+		td.pink{background-color:pink}
+		td.orange{background-color:orange}
+		td.grey{background-color:grey}
+		td.blue{background-color:blue}
+		
+		span {
+			width: 50px; height:70px;
+			border-style:solid;
+			border-color:red;
+		}
+		
+		div.board{
+			float: left
+		}	
+		
+		div.step{
+			float:left;
+			margin:10px;
+			padding:15px 0 0 0;
+			font-size:4em;
+			border-style:solid;
+			border-color:blue;
+			width:100px;
+			height:100px;
+			text-align: center;
+		}	
+		
+		div.controll{
+			clear: both
+ 		}
+ 		
+ 		div.restart{
+ 			float: left;
+ 			visibilty:hidden;
+ 			font-size: 2em;
+ 			text-align: center;
+ 			background-color: blue;
+ 			border-style: inset;
+ 			border-color: blue;
+ 			width: 200px;
+ 		}
+ 		div.message{
+ 			visibilty:hidden;
+ 			font-size: 4em;			
+		}
