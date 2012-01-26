@@ -5,6 +5,7 @@
 		<title></title>	
 	
 		<script type="text/javascript">
+			var stepCounter= 0; 
 			var visitedArray;
 			var haveNotVisited = function(value) {
 				for (var i = 0;i < visitedArray.length;  i++) {
@@ -63,6 +64,10 @@
 			};
 			
 			var klicked = function(newColor) {
+				stepCounter++;
+				var stepCounterDiv=document.getElementById("stepCounter");
+				stepCounterDiv.innerHTML = stepCounter;
+				
 				var boardTable = document.getElementById("board");
 				var oldColor = boardTable.rows[0].cells[0].className;
 				visitedArray = [];
