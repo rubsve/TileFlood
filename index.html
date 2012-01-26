@@ -97,34 +97,46 @@
 			border-color:red;
 		}
 		
-		span.white{background-color:white}
-		span.black{background-color:black}
-		span.pink{background-color:pink}
-		span.orange{background-color:orange}
-		span.grey{background-color:grey}
-		span.blue{background-color:blue}
+		div.board{
+			float: left
+		}	
 		
+		div.step{
+			
+			background-color: yellow
+		}	
+		
+		div.controll{
+			clear: both
+ 		}
 		
 	</style>
 	
 
 	<body onLoad="boardAddTable(10)" >
-		<table id="board" border="0">
-			<tbody>
-			</tbody>
-		</table>
+		<div class="board">	
+			<table id="board" border="0">
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<div class="step" id="stepCounter">
+			0
+		</div>
+		
+		<div class="controll">	
+			<table>
+				<tbody>
+					<tr>
+						<td class="white" onClick="klicked('white')">
+						<td class="black" onClick="klicked('black')">
+						<td class="pink" onClick="klicked('pink')">
+						<td class="orange" onClick="klicked('orange')">
+						<td class="grey" onClick="klicked('grey')">
+						<td class="blue" onClick="klicked('blue')">
+					</tr>
+				</tbody>
+			</table>	
+		</div>
 	</body>
-	<br/>
-	<table>
-		<tbody>
-			<tr>
-				<td class="white" onClick="klicked('white')">
-				<td class="black" onClick="klicked('black')">
-				<td class="pink" onClick="klicked('pink')">
-				<td class="orange" onClick="klicked('orange')">
-				<td class="grey" onClick="klicked('grey')">
-				<td class="blue" onClick="klicked('blue')">
-			</tr>
-		</tbody>
-	</table>	
 </html>
